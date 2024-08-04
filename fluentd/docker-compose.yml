@@ -1,0 +1,12 @@
+version: '3'
+services:
+  fluentd:
+    build:
+      context: .
+    container_name: fluentd
+    volumes:
+     - ./fluent.conf:/fluentd/etc/fluent.conf
+     - /var/lib/docker/containers:/var/lib/docker/containers
+    ports:
+      - "12201:12201"
+      - "1514:1514"
